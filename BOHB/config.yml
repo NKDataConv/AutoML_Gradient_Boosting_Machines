@@ -1,0 +1,29 @@
+authorName: default
+experimentName: numerai
+trialConcurrency: 2
+maxExecDuration: 1h
+maxTrialNum: 40
+#choice: local, remote, pai
+trainingServicePlatform: local
+searchSpacePath: search_space.json
+#choice: true, false
+useAnnotation: false
+#tuner:
+  #choice: TPE, Random, Anneal, Evolution, BatchTuner, MetisTuner
+  #SMAC (SMAC should be installed through nnictl)
+#  builtinTunerName: TPE
+#  classArgs:
+    #choice: maximize, minimize
+#    optimize_mode: maximize
+advisor:
+  builtinAdvisorName: BOHB
+  classArgs:
+    optimize_mode: maximize
+    min_budget: 1
+    max_budget: 9
+    eta: 3
+
+trial:
+  command: python3.6 training.py
+  codeDir: .
+  gpuNum: 0

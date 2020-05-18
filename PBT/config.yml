@@ -1,0 +1,28 @@
+authorName: default
+experimentName: numerai
+trialConcurrency: 10
+maxExecDuration: 1h
+maxTrialNum: 40
+#choice: local, remote, pai
+trainingServicePlatform: local
+searchSpacePath: search_space.json
+#choice: true, false
+useAnnotation: false
+#tuner:
+  #choice: TPE, Random, Anneal, Evolution, BatchTuner, MetisTuner
+  #SMAC (SMAC should be installed through nnictl)
+#  builtinTunerName: TPE
+#  classArgs:
+    #choice: maximize, minimize
+#    optimize_mode: maximize
+tuner:
+  builtinTunerName: PBTTuner
+  classArgs:
+    optimize_mode: maximize
+    all_checkpoint_dir: /Users/nicolaskuhaupt/OneDrive/Projekte/blog_automl/PBT/model_checkpoint
+    population_size: 10
+
+trial:
+  command: python3.6 training.py
+  codeDir: .
+  gpuNum: 0
