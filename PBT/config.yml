@@ -2,7 +2,7 @@ authorName: default
 experimentName: numerai
 trialConcurrency: 10
 maxExecDuration: 1h
-maxTrialNum: 40
+maxTrialNum: 100
 #choice: local, remote, pai
 trainingServicePlatform: local
 searchSpacePath: search_space.json
